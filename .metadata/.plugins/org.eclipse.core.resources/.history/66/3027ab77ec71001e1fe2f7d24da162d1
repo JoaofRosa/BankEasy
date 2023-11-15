@@ -1,0 +1,36 @@
+package banco.conta;
+
+public abstract class Conta {
+    private String numeroConta;
+    private float saldo;
+    private int tipoConta;
+
+    public Conta(int tipoConta) {
+        this.tipoConta = tipoConta;
+    }
+
+    public String obterTipoConta() {
+        if (tipoConta == 1) {
+            return "PF";
+        } else if (tipoConta == 2) {
+            return "PJ";
+        }
+        return "Desconhecido";
+    }
+
+    public String getNumeroConta() {
+        return numeroConta;
+    }
+
+    public void setNumeroConta(String numeroConta) {
+        this.numeroConta = numeroConta;
+    }
+
+    public float getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(float saldo) {
+        this.saldo = saldo;
+    }
+}

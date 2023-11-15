@@ -1,0 +1,17 @@
+package banco.conta;
+
+import java.util.List;
+
+import pessoa.Pessoa;
+
+public class IOperacoesBancarias {
+	    public boolean enviarPix(Pessoa origem, Pessoa destino, float valor) {
+			return false;
+		}
+	    public List<Pessoa> obterClientes() {
+			return null;
+		}
+	    public float obterSaldo(Pessoa pessoa) {
+			return 0;
+		}
+	}

@@ -1,0 +1,7 @@
+package main;
+
+import pessoa.Pessoa;
+
+public class pessoa extends Pessoa {
+
+}

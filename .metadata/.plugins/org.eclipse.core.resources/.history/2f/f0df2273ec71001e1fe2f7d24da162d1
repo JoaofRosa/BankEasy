@@ -1,0 +1,11 @@
+package banco;
+
+import java.util.List;
+
+import pessoa.Pessoa;
+
+public interface IOperacoesBancarias {
+    List<Pessoa> obterClientes();
+    boolean enviarPix(Pessoa origem, Pessoa destino, float valor);
+    float obterSaldo(Pessoa pessoa);
+}

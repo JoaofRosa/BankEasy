@@ -1,0 +1,17 @@
+package banco.conta;
+
+public class Conta {
+	 protected String numeroConta;
+	    protected float saldo;
+	    protected int tipoConta;
+
+	    public Conta(int tipoConta) {
+	        this.tipoConta = tipoConta;
+	        this.numeroConta = "Conta-" + Math.random();
+	    }
+
+	    public String obterTipoConta() {
+	        return (tipoConta == 1) ? "PF" : "PJ";
+	    }
+
+}

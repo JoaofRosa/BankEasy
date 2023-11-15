@@ -1,0 +1,25 @@
+public class Main {
+    public static void main(String[] args) {
+        Itau itau = new Itau();
+        NuBank nubank = new NuBank();
+
+        Pessoa pessoa1 = new Pessoa("João", "123456789", 1);
+        Pessoa pessoa2 = new Pessoa("Empresa X", "987654321", 2);
+
+        String contaItau1 = itau.abrirConta(pessoa1);
+        String contaNuBank1 = nubank.abrirConta(pessoa2);
+
+        System.out.println("Conta do " + pessoa1.nome + " no Itau: " + contaItau1);
+        System.out.println("Conta da " + pessoa2.nome + " no NuBank: " + contaNuBank1);
+
+        pessoa1.listarInformacoes();
+        pessoa2.listarInformacoes();
+
+        itau.enviarPix(pessoa1, pessoa2, 500.0f);
+        System.out.println("Saldo do " + pessoa1.nome + " no Itau: " + itau.obterSaldo(pessoa1));
+        System.out.println("Saldo da " + pessoa2.nome + " no NuBank: " + nubank.obterSaldo(pessoa2));
+
+        itau.encerrarConta(pessoa1);
+        nubank.encerrarConta(pessoa2);
+    }
+}

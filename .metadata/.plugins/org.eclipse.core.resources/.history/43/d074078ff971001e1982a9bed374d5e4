@@ -1,0 +1,48 @@
+package clientes;
+public class add {
+    public static void main(String[] args) {
+        // Criar instâncias dos bancos Itau e NuBank
+        Banco itau = new Itau();
+        Banco nuBank = new NuBank();
+
+        // Criar algumas pessoas
+        Pessoa pessoa1 = new Pessoa("João", "123456789", 1);
+        Pessoa pessoa2 = new Pessoa("Empresa XYZ", "987654321", 2);
+
+        // Abrir contas no Itau e no NuBank
+        String contaItau = itau.abrirConta(pessoa1);
+        String contaNuBank = nuBank.abrirConta(pessoa2);
+
+        // Exibir informações das contas
+        System.out.println("Conta no Itau: " + contaItau);
+        System.out.println("Conta no NuBank: " + contaNuBank);
+
+        // Realizar operações bancárias
+        itau.depositar(pessoa1.getConta(), 1000.0f);
+        nuBank.depositar(pessoa2.getConta(), 5000.0f);
+
+        // Verificar saldo após depósito
+        float saldoItau = itau.obterSaldo(pessoa1);
+        float saldoNuBank = nuBank.obterSaldo(pessoa2);
+
+        System.out.println("Saldo no Itau: " + saldoItau);
+        System.out.println("Saldo no NuBank: " + saldoNuBank);
+
+        // Enviar Pix
+        itau.enviarPix(pessoa1, pessoa2, 500.0f);
+
+        // Verificar saldo após envio de Pix
+        saldoItau = itau.obterSaldo(pessoa1);
+        saldoNuBank = nuBank.obterSaldo(pessoa2);
+
+        System.out.println("Saldo no Itau após envio de Pix: " + saldoItau);
+        System.out.println("Saldo no NuBank após envio de Pix: " + saldoNuBank);
+
+        // Encerrar contas
+        boolean encerrada1 = itau.encerrarConta(pessoa1);
+        boolean encerrada2 = nuBank.encerrarConta(pessoa2);
+
+        System.out.println("Conta no Itau encerrada? " + encerrada1);
+        System.out.println("Conta no NuBank encerrada? " + encerrada2);
+    }
+}

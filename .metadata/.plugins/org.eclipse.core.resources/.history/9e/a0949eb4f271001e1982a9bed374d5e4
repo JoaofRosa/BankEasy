@@ -1,0 +1,30 @@
+package pessoa;
+
+import banco.conta.Conta;
+
+public abstract class Pessoa {
+	    protected String nome;
+	    protected String cpf;
+	    protected int tipoPessoa;
+	    protected Conta conta;
+
+	    public Pessoa(String nome, String cpf, int tipoPessoa) {
+	        if (tipoPessoa != 1 && tipoPessoa != 2) {
+	            throw new IllegalArgumentException("Tipo de pessoa inválido");
+	        }
+	        this.nome = nome;
+	        this.cpf = cpf;
+	        this.tipoPessoa = tipoPessoa;
+	    }
+
+	    public String obterTipoPessoa() {
+	        return (tipoPessoa == 1) ? "Física" : "Jurídica";
+	    }
+
+	    public abstract void listarInformacoes();
+
+	    public Conta getConta() {
+	        return conta;
+	    }
+	}
+

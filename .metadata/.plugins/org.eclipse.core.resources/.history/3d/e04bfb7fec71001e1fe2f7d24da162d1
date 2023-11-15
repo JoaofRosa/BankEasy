@@ -1,0 +1,16 @@
+package banco;
+
+import pessoa.Pessoa;
+
+public abstract class Banco {
+    public abstract void abrirConta(Pessoa pessoa);
+    public abstract boolean encerrarConta(Pessoa pessoa);
+	public boolean encerrarConta1(Pessoa pessoa) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public void abrirConta1(Pessoa pessoa) {
+		// TODO Auto-generated method stub
+		
+	}
+}

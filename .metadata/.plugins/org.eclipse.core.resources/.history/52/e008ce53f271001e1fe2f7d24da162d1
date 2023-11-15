@@ -1,0 +1,26 @@
+package banco.conta;
+
+public class Itau extends Banco {
+    public String abrirConta(Pessoa pessoa) {
+        Conta conta;
+        if (pessoa.tipoPessoa == 1) {
+            conta = new ContaPF();
+        } else if (pessoa.tipoPessoa == 2) {
+            conta = new ContaPJ();
+        } else {
+            throw new IllegalArgumentException("Tipo de pessoa inválido");
+        }
+        pessoa.conta = conta;
+        clientes.add(pessoa);
+        return "Itau-" + Math.random();
+    }
+
+    public boolean encerrarConta(Pessoa pessoa) {
+        if (pessoa.conta != null) {
+            clientes.remove(pessoa);
+            pessoa.conta = null;
+            return true;
+        }
+        return false;
+    }
+}

@@ -1,0 +1,40 @@
+package banco;
+public class NuBank extends Banco {
+    public NuBank() {
+        super();
+    }
+
+    @Override
+    public void abrirConta(Pessoa pessoa) {
+        if (pessoa.getTipoPessoa() == 1) {
+            ContaPF contaPF = new ContaPF();
+            String numeroConta = "NuBank-" + gerarNumeroAleatorio();
+            contaPF.setNumeroConta(numeroConta);
+            pessoa.setConta(contaPF);
+            clientes.add(pessoa);
+        } else if (pessoa.getTipoPessoa() == 2) {
+            ContaPJ contaPJ = new ContaPJ();
+            String numeroConta = "NuBank-" + gerarNumeroAleatorio();
+            contaPJ.setNumeroConta(numeroConta);
+            pessoa.setConta(contaPJ);
+            clientes.add(pessoa);
+        } else {
+            throw new IllegalArgumentException("Tipo de pessoa inválido.");
+        }
+    }
+
+    @Override
+    public boolean encerrarConta(Pessoa pessoa) {
+        if (pessoa.getConta() != null) {
+            clientes.remove(pessoa);
+            pessoa.setConta(null);
+            return true;
+        }
+        return false;
+    }
+
+    private int gerarNumeroAleatorio() {
+        Random random = new Random();
+        return random.nextInt(900) + 100;
+    }
+}

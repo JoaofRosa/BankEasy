@@ -1,0 +1,39 @@
+package banco;
+
+import banco.conta.Conta;
+import banco.conta.ContaPF;
+import pessoa.Pessoa;
+
+public class Itau extends Banco {
+    @Override
+    public void abrirConta1(Pessoa pessoa) {
+        if (pessoa.getTipoPessoa() == 1) {
+            Conta conta = new ContaPF();
+            // Definir um valor aleatório para o número da conta
+            conta.setNumeroConta("Itau-" + (int) (Math.random() * 1000));
+            pessoa.setConta(conta);
+        }
+    }
+
+    @Override
+    public boolean encerrarConta1(Pessoa pessoa) {
+        Conta conta = pessoa.getConta();
+        if (conta != null) {
+            pessoa.setConta(null);
+            return true;
+        }
+        return false;
+    }
+
+	@Override
+	public void abrirConta(Pessoa pessoa) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean encerrarConta(Pessoa pessoa) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+}
